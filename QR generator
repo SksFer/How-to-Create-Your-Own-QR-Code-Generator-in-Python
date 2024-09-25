@@ -1,0 +1,23 @@
+import tkinter as tk 
+from tkinter import simpledialog
+from tkinter import messagebox
+import qrcode 
+
+class MyQR:
+    def __init__(self, master,size=30,padding=2):
+        self.master = master
+        self.qr = qrcode.QRCode(box_size=size, border= padding)
+    def create_qr(self, filename, fg, bg):
+        user_input = simpledialog.askstring("entrada","introduce el testo para el codigo qr", parent = self.master)
+        try:
+            self.qr.add(user_input)
+            self.qr.make(fit=True)
+            qr_image = self.qr.make_image(fill_color=fg, back_color=bg)
+            qr_image.save(filename)
+            messagebox.showinfo("Exito", f"se cre´+o existosamente: {filename}")
+        except Exception as e:     
+            messagebox.showerror("Error", f"ocurrió un error: {e}")  
+root = tk.Tk()
+root.geometry("2200x200")
+app = MyQR(root)
+button =  tk.Button(root, text= "crear codigo QR", command=lambda: app.create_qr("sample.png", "white", "black"))                                
