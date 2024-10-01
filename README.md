@@ -1,3 +1,3 @@
-## How-to-Create-Your-Own-QR-Code-Generator-in-Python
+# How-to-Create-Your-Own-QR-Code-Generator-in-Python
 
 This code creates a simple graphical user interface (GUI) application using the tkinter library for generating QR codes. It defines a MyQR class that initializes a QR code object and includes a method (create_qr) to prompt the user for input text via a dialog box. Upon receiving the input, it generates a QR code image using the qrcode library, saves it to a specified file with customizable foreground and background colors, and provides user feedback through message boxes indicating success or any encountered errors. The main application sets up the GUI window, creates an instance of the MyQR class, and adds a button that triggers the QR code creation process when clicked.
